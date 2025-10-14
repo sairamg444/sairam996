@@ -1,0 +1,10 @@
+fruits=["apple","banana","orange","pineapple","grapes","papaya"]
+print(fruits)
+fruits.append("rose")
+print(fruits)
+fruits[1]="jasmine"
+print(fruits)
+fruits.remove("apple")
+print(fruits)
+fruits[2]="pomegranite"
+print(fruits)
