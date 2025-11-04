@@ -1,0 +1,3 @@
+#include <iostream>
+using namespace std;
+int main(){float l,b;cin>>l>>b;cout<<l*b<<" "<<2*(l+b);return 0;}
