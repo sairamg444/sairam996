@@ -1,0 +1,2 @@
+#include <stdio.h>
+int main(){char op;float a,b;scanf(" %c%f%f",&op,&a,&b);if(op=='+')printf("%.2f",a+b);else if(op=='-')printf("%.2f",a-b);else if(op=='*')printf("%.2f",a*b);else if(op=='/')printf("%.2f",a/b);return 0;}
