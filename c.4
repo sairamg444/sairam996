@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(void) {
+    int T;
+    scanf("%d", &T);
+
+    while (T--) {
+        int X, Y;
+        scanf("%d %d", &X, &Y);
+
+        // Minimum investment needed so that effective income <= Y
+        printf("%d\n", X - Y);
+    }
+
+    return 0;
+}
