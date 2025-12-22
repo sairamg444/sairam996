@@ -1,4 +1,16 @@
-SELECT DISTINCT CITY
-FROM STATION
-WHERE LOWER(SUBSTR(CITY, 1, 1)) NOT IN ('a','e','i','o','u')
-  AND LOWER(SUBSTR(CITY, LENGTH(CITY), 1)) NOT IN ('a','e','i','o','u');
+SELECT 
+    CASE 
+        WHEN g.grade < 8 THEN 'NULL'
+        ELSE s.name 
+    END AS name,
+    g.grade,
+    s.marks
+FROM students s
+JOIN grades g
+  ON s.marks BETWEEN g.min_mark AND g.max_mark
+ORDER BY 
+    g.grade DESC,
+    CASE 
+        WHEN g.grade >= 8 THEN s.name
+        ELSE s.marks
+    END;

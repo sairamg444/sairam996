@@ -1,0 +1,15 @@
+from datetime import datetime
+
+t = int(input().strip())
+
+for _ in range(t):
+    time1 = input().strip()
+    time2 = input().strip()
+    
+    format_str = "%a %d %b %Y %H:%M:%S %z"
+    
+    dt1 = datetime.strptime(time1, format_str)
+    dt2 = datetime.strptime(time2, format_str)
+    
+    diff = abs(int((dt1 - dt2).total_seconds()))
+    print(diff)

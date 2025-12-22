@@ -1,3 +1,14 @@
-SELECT CAST(ROUND(SUM(LAT_N), 4) AS DECIMAL(10,4))
-FROM STATION
-WHERE LAT_N > 38.7880 AND LAT_N < 137.2345;
+SELECT
+    MAX(CASE WHEN Occupation = 'Doctor' THEN Name END) AS Doctor,
+    MAX(CASE WHEN Occupation = 'Professor' THEN Name END) AS Professor,
+    MAX(CASE WHEN Occupation = 'Singer' THEN Name END) AS Singer,
+    MAX(CASE WHEN Occupation = 'Actor' THEN Name END) AS Actor
+FROM (
+    SELECT
+        Name,
+        Occupation,
+        ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) AS rn
+    FROM OCCUPATIONS
+) t
+GROUP BY rn
+ORDER BY rn;
